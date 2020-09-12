@@ -1,0 +1,12 @@
+.description {
+  padding: 30px 30px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.description img {
+  height: 150px;
+}
+.info {
+  margin-left: 30px;
+}

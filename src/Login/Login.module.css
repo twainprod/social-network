@@ -1,0 +1,31 @@
+.title {
+  padding: 25px;
+  font-weight: 700;
+  border-bottom: 1px solid #e6ecf5;
+  color: #333333;
+}
+form {
+  padding: 30px;
+  width: 300px;
+}
+.btnSubmit {
+  width: 100%;
+}
+.inputArea {
+  box-sizing: border-box;
+  font-size: 15px;
+  color: #616161;
+  font-weight: 500;
+  border-radius: 0;
+  border: none;
+  border-bottom: solid 1px #bdbdbd;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+}
+.rememberMe {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #616161;
+}

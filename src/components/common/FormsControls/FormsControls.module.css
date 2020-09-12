@@ -1,0 +1,36 @@
+.error input,
+.error textarea {
+  border: 1px #be4b49 solid;
+  border-radius: 4px;
+}
+.spanBlock {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.error span {
+  padding: 5px;
+  color: #fff;
+  background-color: #be4b49;
+  font-size: 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+.error span img,
+.formError img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.formError {
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: #be4b49;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%;
+}

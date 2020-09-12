@@ -1,0 +1,60 @@
+.title {
+  padding: 25px;
+  font-weight: 700;
+  border-bottom: 1px solid #e6ecf5;
+  color: #333333;
+}
+.users {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+.item {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto 1fr;
+  padding: 20px;
+  border: 1px solid #e6ecf5;
+  font-family: "Roboto", sans-serif;
+}
+.userPhoto {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 10px;
+  border-radius: 100%;
+}
+.avatarAndButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.description {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr auto;
+}
+.name {
+  color: #27aae1;
+  font-weight: 500;
+  font-size: 14px;
+}
+.status {
+  color: #6d6e71;
+  line-height: 26px;
+  font-size: 13px;
+}
+.location {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.buttonsToggle {
+  font-size: 12px;
+}
+.buttonsToggle:disabled {
+  opacity: 0.5;
+}
