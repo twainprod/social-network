@@ -53,7 +53,7 @@ export const login = (email, password, rememberMe) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  let Respone = authAPI.logout();
+  let Response = await authAPI.logout();
   if (Response.data.resultCode === 0) {
     dispatch(setAuthUserData(null, null, null, false)); // зачищаем значения о пользователе (id, email, login, isAuth)
   }
