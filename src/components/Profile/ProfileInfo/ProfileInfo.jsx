@@ -3,14 +3,16 @@ import s from "./ProfileInfo.module.css";
 import userPhoto from "../../../img/user.jpg";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = ({ profile, status, updateStatus }) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0]);
+    }
+  };
   return (
     <div>
       <div className={s.description}>
-        <img
-          src={profile.photos.large != null ? profile.photos.large : userPhoto}
-          alt=""
-        />
+        <img src={profile.photos.large || userPhoto} alt="" />
         <div className={s.info}>
           <h3>{profile.fullName}</h3>
           <div>
@@ -22,6 +24,9 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
             />
           </div>
         </div>
+      </div>
+      <div>
+        {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
       </div>
     </div>
   );
