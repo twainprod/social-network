@@ -9,7 +9,7 @@ import { login } from "../redux/auth-reducer";
 import { Redirect } from "react-router-dom";
 import warning from "./../img/warning.png";
 
-const LoginForm = ({ handleSubmit, error }) => {
+const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -36,6 +36,10 @@ const LoginForm = ({ handleSubmit, error }) => {
         {""}
         Remember me
       </div>
+      {captchaUrl && <img src={captchaUrl} />}
+      {captchaUrl && (
+        <Field component={"input"} name={"captcha"} validate={[required]} />
+      )}
       {error && (
         <div className={sf.formError}>
           <img src={warning} alt="warning" />
@@ -55,7 +59,12 @@ const LoginReduxForm = reduxForm({
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe);
+    props.login(
+      formData.email,
+      formData.password,
+      formData.rememberMe,
+      formData.captcha
+    );
   };
   if (props.isAuth) {
     return <Redirect to={"/profile"} />;
@@ -63,13 +72,14 @@ const Login = (props) => {
   return (
     <div>
       <div className={s.title}>Sign into your account</div>
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
+  captchaUrl: state.auth.captchaUrl,
 });
 
 export default connect(mapStateToProps, { login })(Login);
