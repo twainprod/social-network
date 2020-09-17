@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import s from "./Paginator.module.css";
+import cn from "classnames";
 
 let Paginator = ({
   totalItemsCount,
@@ -42,7 +43,10 @@ let Paginator = ({
               onClick={(e) => {
                 onPageChanged(p);
               }}
-              className={`${currentPage === p && s.selectedPage} ${s.pages}`}
+              className={cn({ [s.selectedPage]: currentPage === p }, s.pages)}
+              // Использование библиотеки classNames (cn) позволяет применять несколько классов к элементу через запятую.
+              // {[s.selectedPage]: currentPage === p} - добавить класс s.selectedPage, при условии, что currentPage === p.
+              // Класс s.pages будет применяться всегда.
             >
               {p}
             </span>

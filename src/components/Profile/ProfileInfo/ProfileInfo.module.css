@@ -6,10 +6,25 @@
 }
 .avatar {
   height: 150px;
+  position: relative;
+}
+.blockAvatar {
+  height: 150px;
+  width: 150px;
 }
 .info {
   margin-left: 30px;
 }
 .contacts {
   margin-left: 20px;
+}
+.loadPhoto {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  display: block;
+  background-image: url("https://cdn.onlinewebfonts.com/svg/img_458321.png");
+}
+.loadPhoto:hover {
+  opacity: 0.9;
 }

@@ -29,11 +29,16 @@ const ProfileInfo = ({
   return (
     <div>
       <div className={s.description}>
-        <img
-          src={profile.photos.large || userPhoto}
-          alt=""
-          className={s.avatar}
-        />
+        <div className={s.blockAvatar}>
+          <div className={s.loadPhoto}>
+            {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+          </div>
+          <img
+            src={profile.photos.large || userPhoto}
+            alt=""
+            className={s.avatar}
+          />
+        </div>
         <div className={s.info}>
           {editMode ? (
             <ProfileDataForm
@@ -52,9 +57,6 @@ const ProfileInfo = ({
           )}
           <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
         </div>
-      </div>
-      <div>
-        {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
       </div>
     </div>
   );

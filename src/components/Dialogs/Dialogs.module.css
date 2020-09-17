@@ -25,7 +25,7 @@
   text-decoration: underline;
 }
 .dialogsItems a.active {
-  color: #dc4734;
+  color: #0f96f9;
 }
 .dialog {
   display: block;
@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   border: 1px solid #e6ecf5;
-  color: #888da8;
+  /*color: #888da8;*/
   font-size: 12px;
   margin-bottom: 5px;
   padding: 5px;

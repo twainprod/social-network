@@ -62,7 +62,7 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPostActionCreator = (newPostBody) => ({
+export const addPost = (newPostBody) => ({
   type: ADD_POST,
   newPostBody,
 });

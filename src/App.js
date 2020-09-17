@@ -4,7 +4,13 @@ import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import { Route, withRouter, BrowserRouter, Switch } from "react-router-dom";
+import {
+  Route,
+  withRouter,
+  BrowserRouter,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./Login/Login";
@@ -22,8 +28,22 @@ const ProfileContainer = lazy(() =>
 );
 
 class App extends React.Component {
+  catchAllUnhandledErrors = (PromiseRejectionEvent) => {
+    alert("Some error occured");
+  };
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+    // ~~~~~ ВАЖНЫЙ МОМЕНТ!!! ~~~~~~
+    // Если при вмонтировании компоненты добавляем addEventListener,
+    // то при ее демонтировании нужно ОБЯЗАТЕЛЬНО этот ивент удалить
+    // при помощи removeEventListener
+  }
+  componentWillUnmount() {
+    window.removeEventListener(
+      "unhandledrejection",
+      this.catchAllUnhandledErrors
+    );
   }
   render() {
     if (!this.props.initialized) {
@@ -50,6 +70,9 @@ class App extends React.Component {
               <Route path="/music" render={() => <Music />} />
               <Route path="/settings" render={() => <Settings />} />
               <Route path="/login" render={() => <Login />} />
+
+              <Redirect exact from="/" to="/profile" />
+              <Route path="*" render={() => <div>404 NOT FOUND</div>} />
             </Switch>
           </div>
         </Suspense>
@@ -69,7 +92,7 @@ let AppContainer = compose(
 
 const TwainApp = (props) => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter /*basename={process.env.PUBLIC_URL}*/>
       <Provider store={store}>
         <AppContainer />
       </Provider>

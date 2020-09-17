@@ -6,10 +6,9 @@
   background-color: #bbb;
   width: 30px;
   height: 30px;
-  border: 1px solid #bbb;
   margin-bottom: 5px;
   border-radius: 100%;
-  box-shadow: 1px 1px 1px #000; /* x y radius color */
+  /*box-shadow: 1px 1px 1px #000; /* x y radius color */
 }
 .photo img {
   width: 100%;
