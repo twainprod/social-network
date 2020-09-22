@@ -72,7 +72,7 @@ class App extends React.Component {
               <Route path="/login" render={() => <Login />} />
 
               <Redirect exact from="/" to="/profile" />
-              <Route path="*" render={() => <div>404 NOT FOUND</div>} />
+              <Route path="/*" render={() => <div>404 NOT FOUND</div>} />
             </Switch>
           </div>
         </Suspense>
@@ -92,7 +92,7 @@ let AppContainer = compose(
 
 const TwainApp = (props) => {
   return (
-    <BrowserRouter /*basename={process.env.PUBLIC_URL}*/>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
