@@ -3,27 +3,25 @@
   padding: 15px 40px;
   display: flex;
   align-items: center;
-  background-color: #1f4681;
-  box-shadow: 0px 1px 15px 0px #33333333;
+  background-color: #fff;
   font-family: "Roboto", sans-serif;
+  border-bottom: 1px solid #e6ecf5;
 }
 .brand {
   margin-left: 10px;
   font-weight: 500;
-  color: #fff;
+  color: #333;
   width: 100%;
 }
 .authBlock {
-  color: #fff;
-  display: flex;
-  align-items: center;
+  color: #333;
 }
 .loggedUser {
   display: flex;
   align-items: center;
 }
-.authBlock button {
-  /* some code */
+.loggedUser button {
+  margin-left: 10px;
 }
 .authBlock a {
   text-decoration: none;

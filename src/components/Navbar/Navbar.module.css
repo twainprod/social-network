@@ -2,7 +2,7 @@
   grid-area: n;
   background-color: #fff;
   padding: 25px;
-  box-shadow: 0px 1px 15px 0px #33333333;
+  /* box-shadow: 0px 1px 15px 0px #33333333; */
   font-family: "Roboto", sans-serif;
   color: #333333;
 }

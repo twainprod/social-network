@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import s from "./ProfileInfo.module.css";
 
 const ProfileStatusWithHooks = (props) => {
   let [editMode, setEditMode] = useState(false);
@@ -25,7 +26,7 @@ const ProfileStatusWithHooks = (props) => {
   return (
     <div>
       {!editMode && (
-        <div>
+        <div className={s.status}>
           <b>Status: </b>
           <span onDoubleClick={activateEditMode}>
             {props.status || "Write your status..."}

@@ -7,14 +7,14 @@
     "n c";
   grid-template-rows: auto 1fr;
   grid-template-columns: 200px 1fr;
-  grid-gap: 5px;
+  border: 1px solid #e6ecf5;
 }
 .app-wrapper-content {
   grid-area: c;
   background-color: #fff;
-  box-shadow: 0px 1px 15px 0px #33333333;
   font-family: "Roboto", sans-serif;
   color: #333333;
+  border-left: 1px solid #e6ecf5;
 }
 .loader {
   display: flex;
