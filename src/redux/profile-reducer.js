@@ -9,8 +9,19 @@ const SAVE_PHOTO_SUCCESS = "profile/SAVE_PHOTO_SUCCESS";
 
 let initialState = {
   posts: [
-    { id: 1, text: "Hi, how are you?", likesCount: 15 },
-    { id: 2, text: "It's my first post", likesCount: 20 },
+    { id: 1, text: "It's my first post!", likesCount: 12 },
+    {
+      id: 2,
+      text:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa similique est nam id reprehenderit, libero quasi veniam inventore nulla minus beatae ipsa sed enim corrupti atque eius! Consequuntur, sint ducimus.",
+      likesCount: 2,
+    },
+    {
+      id: 3,
+      text:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quo dolor similique illo nulla beatae ullam aperiam ea. Dolor esse possimus earum in deleniti perferendis reiciendis similique voluptas aspernatur, dolorem neque sunt quia fugiat, consequuntur id? Officiis dolor culpa deserunt consequatur quaerat vero perspiciatis molestiae adipisci repudiandae eum temporibus nisi voluptatibus doloremque minima, natus et quo deleniti dignissimos! Veritatis fugit tenetur reiciendis repellat est alias, officiis ad aliquam possimus eum!",
+      likesCount: 634,
+    },
   ],
   profile: null,
   status: "",

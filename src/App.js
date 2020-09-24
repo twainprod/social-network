@@ -92,7 +92,7 @@ let AppContainer = compose(
 
 const TwainApp = (props) => {
   return (
-    <BrowserRouter /*basename={process.env.PUBLIC_URL}*/>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>

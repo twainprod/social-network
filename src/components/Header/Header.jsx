@@ -1,6 +1,8 @@
 import React from "react";
 import s from "./Header.module.css";
 import { NavLink } from "react-router-dom";
+import logoutImg from "./../../img/logout.svg";
+import loginImg from "./../../img/login.svg";
 
 const Header = (props) => {
   return (
@@ -9,12 +11,13 @@ const Header = (props) => {
       <div className={s.authBlock}>
         {props.isAuth ? (
           <div className={s.loggedUser}>
-            {props.login} <button onClick={props.logout}>Logout</button>
+            {props.login} <img src={logoutImg} onClick={props.logout} />
           </div>
         ) : (
-          <button>
-            <NavLink to={"/login"}>Login</NavLink>
-          </button>
+          <NavLink to={"/login"}>
+            Login
+            <img src={loginImg} />
+          </NavLink>
         )}
       </div>
     </header>

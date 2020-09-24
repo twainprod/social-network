@@ -45,3 +45,7 @@ button:active {
   background: #21935a;
   box-shadow: 0 3px #21935a inset;
 }
+textarea {
+  outline: none;
+  resize: vertical;
+}

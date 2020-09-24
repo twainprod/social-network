@@ -5,7 +5,7 @@
   grid-template-areas:
     "h h"
     "n c";
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 70px 1fr;
   grid-template-columns: 200px 1fr;
   border: 1px solid #e6ecf5;
 }

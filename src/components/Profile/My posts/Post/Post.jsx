@@ -9,9 +9,9 @@ const Post = (props) => {
         <img src={props.profile.photos.small || userPhoto} />
         <div className={s.message}>{props.text}</div>
         <br />
-        <span>
-          {props.likesCount} <div>♥</div>
-        </span>
+        <div className={s.likes}>
+          <span>{props.likesCount} ♥</span>
+        </div>
       </div>
     </div>
   );
