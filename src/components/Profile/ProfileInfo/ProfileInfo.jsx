@@ -30,8 +30,23 @@ const ProfileInfo = ({
     <div>
       <div className={s.description}>
         <div className={s.blockAvatar}>
-          <div className={s.loadPhoto}>
-            {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+          <div>
+            {isOwner && (
+              <>
+                <label for={s.uploadPhoto}>
+                  <img
+                    src="https://image.flaticon.com/icons/png/512/12/12313.png"
+                    alt="upload"
+                    className={s.loadPhoto}
+                  />
+                </label>
+                <input
+                  id={s.uploadPhoto}
+                  type={"file"}
+                  onChange={onMainPhotoSelected}
+                />{" "}
+              </>
+            )}
           </div>
           <img
             src={profile.photos.large || userPhoto}
@@ -65,7 +80,13 @@ const ProfileInfo = ({
 const ProfileData = ({ profile, isOwner, goToEditeMode }) => {
   return (
     <div>
-      {isOwner && <button onClick={goToEditeMode}>Edit</button>}
+      {isOwner && (
+        <img
+          src="https://icons-for-free.com/iconfiles/png/512/compose+draw+edit+write+icon-1320196706045580276.png"
+          className={s.buttonEdit}
+          onClick={goToEditeMode}
+        />
+      )}
       <div>
         <h3>{profile.fullName}</h3>
         <b>Looking for a job: </b>
