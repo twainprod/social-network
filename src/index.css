@@ -46,6 +46,12 @@ button:active {
   box-shadow: 0 3px #21935a inset;
 }
 textarea {
+  width: 100%;
   outline: none;
   resize: vertical;
+  background-color: #fff;
+  border: 1px solid silver;
+  padding: 5px;
+  min-height: 40px;
+  font-family: "Roboto", sans-serif;
 }

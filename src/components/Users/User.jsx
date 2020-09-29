@@ -46,8 +46,8 @@ const User = ({ user, followingInProgress, unfollow, follow }) => {
           <div className={s.status}>{user.status}</div>
         </div>
         <div className={s.location}>
-          <div>{"user.location.city,"}</div>
-          <div>{"user.location.country"}</div>
+          <div>{"City,"}</div>
+          <div>{"Country"}</div>
         </div>
       </div>
     </div>

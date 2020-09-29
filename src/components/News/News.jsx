@@ -5,7 +5,7 @@ const News = (props) => {
   return (
     <>
       <div className={s.title}>News</div>
-      <div>Here must be Block with News.</div>
+      <div className={s.body}>Here must be Block with News.</div>
     </>
   );
 };

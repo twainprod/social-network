@@ -5,7 +5,7 @@ const Settings = (props) => {
   return (
     <>
       <div className={s.title}>Settings</div>
-      <div>Here must be Block with Settings.</div>
+      <div className={s.body}>Here must be Block with Settings.</div>
     </>
   );
 };

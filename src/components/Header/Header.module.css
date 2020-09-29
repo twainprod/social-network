@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   color: #333;
-  background-color: #fff;
   font-family: "Roboto", sans-serif;
   border-bottom: 1px solid #e6ecf5;
 }
@@ -19,15 +18,17 @@
 .authBlock img {
   height: 25px;
   margin-left: 10px;
-  cursor: pointer;
 }
-.loggedUser {
-  display: flex;
-  align-items: center;
+.authBlock img:hover {
+  cursor: pointer;
 }
 .authBlock a {
   color: #333;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.loggedUser {
   display: flex;
   align-items: center;
 }

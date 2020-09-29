@@ -25,6 +25,7 @@ let Paginator = ({
     <div className={s.pagesBlock}>
       {portionNumber > 1 && (
         <button
+          className={s.buttonPrev}
           onClick={() => {
             setPortionNumber(portionNumber - 1);
           }}

@@ -55,9 +55,9 @@ class App extends React.Component {
     }
     return (
       <div className="app-wrapper">
+        <HeaderContainer />
+        <Navbar />
         <Suspense fallback={<Loader />}>
-          <HeaderContainer />
-          <Navbar />
           <div className="app-wrapper-content">
             <Switch>
               <Route

@@ -81,10 +81,5 @@
   margin-left: 10px;
 }
 .textArea {
-  background-color: #fff;
-  border: 1px solid silver;
-  padding: 5px;
-  min-height: 25px;
   width: 300px;
-  font-family: Arial, Helvetica, sans-serif;
 }

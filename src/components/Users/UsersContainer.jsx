@@ -8,6 +8,7 @@ import {
   toggleFollowingProgress,
   getUsers,
   setTotalUsersCount,
+  toggleIsFetching,
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import { compose } from "redux";
@@ -19,6 +20,8 @@ import {
   getPageSize,
   getUsersItems,
 } from "../../redux/users-selectors";
+import Paginator from "../common/Paginator/Paginator";
+import Loader from "../common/Loader/Loader";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -35,16 +38,26 @@ class UsersContainer extends React.Component {
     return (
       <>
         <div className={s.title}>Users</div>
-        <Users
-          users={this.props.users}
-          totalUsersCount={this.props.totalUsersCount}
-          pageSize={this.props.pageSize}
+        <Paginator
           currentPage={this.props.currentPage}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
           onPageChanged={this.onPageChanged}
-          followingInProgress={this.props.followingInProgress}
+          totalItemsCount={this.props.totalUsersCount}
+          pageSize={this.props.pageSize}
         />
+        {this.props.isFetching ? (
+          <Loader />
+        ) : (
+          <Users
+            users={this.props.users}
+            totalUsersCount={this.props.totalUsersCount}
+            pageSize={this.props.pageSize}
+            currentPage={this.props.currentPage}
+            onPageChanged={this.onPageChanged}
+            follow={this.props.follow}
+            unfollow={this.props.unfollow}
+            followingInProgress={this.props.followingInProgress}
+          />
+        )}
       </>
     );
   }
@@ -69,5 +82,6 @@ export default compose(
     setTotalUsersCount,
     toggleFollowingProgress,
     getUsers,
+    toggleIsFetching,
   })
 )(UsersContainer);
