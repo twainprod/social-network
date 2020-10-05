@@ -11,12 +11,13 @@ const Header = (props) => {
       <div className={s.authBlock}>
         {props.isAuth ? (
           <div className={s.loggedUser}>
-            {props.login} <img src={logoutImg} onClick={props.logout} />
+            {props.login}{" "}
+            <img src={logoutImg} onClick={props.logout} alt="logout" />
           </div>
         ) : (
           <NavLink to={"/login"}>
             Login
-            <img src={loginImg} />
+            <img src={loginImg} alt="login" />
           </NavLink>
         )}
       </div>

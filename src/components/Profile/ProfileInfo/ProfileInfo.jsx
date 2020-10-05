@@ -33,7 +33,7 @@ const ProfileInfo = ({
           <div>
             {isOwner && (
               <>
-                <label for={s.uploadPhoto}>
+                <label htmlFor={s.uploadPhoto}>
                   <img
                     src="https://image.flaticon.com/icons/png/512/12/12313.png"
                     alt="upload"
@@ -85,6 +85,7 @@ const ProfileData = ({ profile, isOwner, goToEditeMode }) => {
           src="https://icons-for-free.com/iconfiles/png/512/compose+draw+edit+write+icon-1320196706045580276.png"
           className={s.buttonEdit}
           onClick={goToEditeMode}
+          alt="edit"
         />
       )}
       <div>

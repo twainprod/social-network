@@ -22,10 +22,6 @@ export const usersAPI = {
   followUser(userId) {
     return instanse.post(`follow/${userId}`);
   },
-  getProfile(userId) {
-    console.warn("Obsolete method. Please use profileAPI object.");
-    return profileAPI.getProfile(userId);
-  },
 };
 
 export const profileAPI = {

@@ -36,7 +36,7 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
         {""}
         Remember me
       </div>
-      {captchaUrl && <img src={captchaUrl} />}
+      {captchaUrl && <img src={captchaUrl} alt="captcha" />}
       {captchaUrl && (
         <Field component={"input"} name={"captcha"} validate={[required]} />
       )}
