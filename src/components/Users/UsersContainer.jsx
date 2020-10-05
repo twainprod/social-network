@@ -7,8 +7,6 @@ import {
   setCurrentPage,
   toggleFollowingProgress,
   getUsers,
-  setTotalUsersCount,
-  toggleIsFetching,
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import { compose } from "redux";
@@ -26,7 +24,7 @@ import Loader from "../common/Loader/Loader";
 class UsersContainer extends React.Component {
   componentDidMount() {
     let { currentPage, pageSize } = this.props;
-    this.props.getUsers(currentPage, pageSize);
+    this.props.getUsers(currentPage, pageSize); // Вызов thunk-creator'а
   }
 
   onPageChanged = (pageNumber) => {
@@ -79,9 +77,7 @@ export default compose(
     follow,
     unfollow,
     setCurrentPage,
-    setTotalUsersCount,
     toggleFollowingProgress,
     getUsers,
-    toggleIsFetching,
   })
 )(UsersContainer);

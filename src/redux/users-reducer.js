@@ -99,6 +99,13 @@ const toggleFollowing = async (dispatch, userId, apiMethod, actionCreator) => {
 };
 
 export const follow = (userId) => async (dispatch) => {
+  // dispatch(toggleIsFetching(true));
+  // usersAPI.getUsers(currentPage, pageSize).then((data) => {
+  //   dispatch(toggleIsFetching(false));
+  //   dispatch(setUsers(data.items));
+  //   dispatch(setTotalUsersCount(data.totalCount));
+  // });
+
   toggleFollowing(
     dispatch,
     userId,

@@ -1,13 +1,13 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 import s from "./Login.module.css";
-import sf from "./../components/common/FormsControls/FormsControls.module.css";
-import { Input } from "../components/common/FormsControls/FormsControls";
-import { required } from "../utils/validators/validators";
+import sf from "../common/FormsControls/FormsControls.module.css";
+import { Input } from "../common/FormsControls/FormsControls";
+import { required } from "../../utils/validators/validators";
 import { connect } from "react-redux";
-import { login } from "../redux/auth-reducer";
+import { login } from "../../redux/auth-reducer";
 import { Redirect } from "react-router-dom";
-import warning from "./../img/warning.png";
+import warning from "../../img/warning.png";
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (

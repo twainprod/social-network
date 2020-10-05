@@ -11,6 +11,7 @@ import {
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
 import Loader from "../common/Loader/Loader";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 class ProfileContainer extends React.Component {
   refreshProfile() {
@@ -35,6 +36,7 @@ class ProfileContainer extends React.Component {
     if (!this.props.profile) {
       return <Loader />;
     }
+
     return (
       <Profile
         {...this.props}
@@ -51,7 +53,6 @@ let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
   authorizedUserId: state.auth.userId,
-  isAuth: state.auth.isAuth,
 });
 
 export default compose(
@@ -62,5 +63,6 @@ export default compose(
     savePhoto,
     saveProfile,
   }),
-  withRouter
+  withRouter,
+  withAuthRedirect
 )(ProfileContainer);
