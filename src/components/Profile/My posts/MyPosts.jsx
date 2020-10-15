@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, reset } from "redux-form";
 import {
   required,
   maxLengthCreator,
@@ -33,7 +33,7 @@ const MyPosts = React.memo((props) => {
   );
 });
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength100 = maxLengthCreator(100);
 
 const AddNewPostForm = (props) => {
   return (
@@ -43,15 +43,19 @@ const AddNewPostForm = (props) => {
         component={Textarea}
         name="newPostBody"
         placeholder="Write post text..."
-        validate={[required, maxLength10]}
+        validate={[required, maxLength100]}
       />
       <button className={s.buttonSend}>Add post</button>
     </form>
   );
 };
 
-const AddPostFormRedux = reduxForm({ form: "profileAddNewPostForm" })(
-  AddNewPostForm
-);
+const afterSubmit = (result, dispatch) =>
+  dispatch(reset("profileAddNewPostForm"));
+
+const AddPostFormRedux = reduxForm({
+  form: "profileAddNewPostForm",
+  onSubmitSuccess: afterSubmit,
+})(AddNewPostForm);
 
 export default MyPosts;

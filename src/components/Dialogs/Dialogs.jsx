@@ -17,6 +17,7 @@ const Dialogs = (props) => {
     <Message message={m.message} />
   ));
 
+  // Принимает values при событии onSubmit нашей формы AddMessageForm
   let addNewMessage = (values) => {
     props.sendMessage(values.newMessageBody);
   };
@@ -47,7 +48,8 @@ const Dialogs = (props) => {
             }}
           />
         </div>
-        <AddMessageFormRedux onSubmit={addNewMessage} />
+        {/* Событие onSubmit передает данные из формы колбеку addNewMessage */}
+        <AddMessageFormRedux onSubmit={addNewMessage} /> 
       </div>
     </div>
   );

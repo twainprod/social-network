@@ -81,12 +81,9 @@ const ProfileData = ({ profile, isOwner, goToEditeMode }) => {
   return (
     <div>
       {isOwner && (
-        <img
-          src="https://icons-for-free.com/iconfiles/png/512/compose+draw+edit+write+icon-1320196706045580276.png"
-          className={s.buttonEdit}
-          onClick={goToEditeMode}
-          alt="edit"
-        />
+        <button className={s.buttonEdit} onClick={goToEditeMode}>
+          Edit profile
+        </button>
       )}
       <div>
         <h3>{profile.fullName}</h3>
@@ -102,7 +99,7 @@ const ProfileData = ({ profile, isOwner, goToEditeMode }) => {
         <b>About me:</b> {profile.aboutMe}
       </div>
       <div>
-        <b>Contacts:</b>{" "}
+        {/* <b>Contacts:</b>{" "} */}
         <div className={s.contacts}>
           {Object.keys(profile.contacts).map((key) => {
             return (
@@ -121,8 +118,17 @@ const ProfileData = ({ profile, isOwner, goToEditeMode }) => {
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
-    <div>
-      <b>{contactTitle}</b>: {contactValue}
+    <div className={s.contactItem}>
+      <b>{contactTitle}</b>:{" "}
+      {!contactValue ? (
+        <span>-</span>
+      ) : (
+        (
+          <a href={contactValue} target="_blank noopener">
+            {contactValue}
+          </a>
+        ) || <span>none</span>
+      )}
     </div>
   );
 };
