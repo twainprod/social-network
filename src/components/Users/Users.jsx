@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Users.module.css";
 import User from "./User";
 
-let Users = (props) => {
+const Users = (props) => {
   return (
     <div className={s.users}>
       {props.users.map((u) => (

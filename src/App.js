@@ -11,9 +11,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import Login from "./components/Login/Login";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./redux/app-reducer";
@@ -25,6 +23,12 @@ const DialogsContainer = lazy(() =>
 );
 const ProfileContainer = lazy(() =>
   import("./components/Profile/ProfileContainer")
+);
+const UsersContainer = lazy(() => 
+  import('./components/Users/UsersContainer')
+);
+const Login = lazy(() =>
+  import("./components/Login/Login")
 );
 
 class App extends React.Component {
@@ -56,9 +60,9 @@ class App extends React.Component {
     return (
       <div className="app-wrapper">
         <HeaderContainer />
-        <Navbar />
-        <Suspense fallback={<Loader />}>
-          <div className="app-wrapper-content">
+        <Navbar />        
+        <div className="app-wrapper-content">
+          <Suspense fallback={<Loader />}>
             <Switch>
               <Route
                 path="/profile/:userId?"
@@ -74,8 +78,8 @@ class App extends React.Component {
               <Redirect exact from="/" to="/profile" />
               <Route path="/*" render={() => <div>404 NOT FOUND</div>} />
             </Switch>
-          </div>
         </Suspense>
+        </div>       
       </div>
     );
   }

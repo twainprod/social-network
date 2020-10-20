@@ -1,6 +1,6 @@
 const {
   default: profileReducer,
-  addPostActionCreator,
+  addPost,
   deletePost,
 } = require("./profile-reducer");
 
@@ -15,9 +15,9 @@ let state = {
 // expect(received).toBe(expected);
 // Сравнение полученного значения и ожидаемого
 
-test("length of post should be incremented", () => {
+test("Количество постов увеличится", () => {
   // 1. Данные для теста
-  let action = addPostActionCreator("twainprod.com");
+  let action = addPost("twainprod.com");
 
   // 2. action
   let newState = profileReducer(state, action);
@@ -27,12 +27,12 @@ test("length of post should be incremented", () => {
 });
 
 test("message of new post should be correct", () => {
-  let action = addPostActionCreator("twainprod.com");
+  let action = addPost("twainprod.com");
   let newState = profileReducer(state, action);
   expect(newState.posts[2].text).toBe("twainprod.com");
 });
 
-test("after deleting length of messages should be decrement", () => {
+test("После удаления поста длина массива должна уменьшиться", () => {
   let action = deletePost(1);
   let newState = profileReducer(state, action);
   expect(newState.posts.length).toBe(1);

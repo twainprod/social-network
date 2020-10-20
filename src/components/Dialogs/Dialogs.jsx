@@ -35,18 +35,6 @@ const Dialogs = (props) => {
               return <div>Messages for id 2</div>;
             }}
           />
-          <Route
-            path="/dialogs/3"
-            component={() => {
-              return <div>There are messages for id 3</div>;
-            }}
-          />
-          <Route
-            path="/dialogs/4"
-            component={() => {
-              return <div>Here must be messages for id 4</div>;
-            }}
-          />
         </div>
         {/* Событие onSubmit передает данные из формы колбеку addNewMessage */}
         <AddMessageFormRedux onSubmit={addNewMessage} /> 

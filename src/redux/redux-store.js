@@ -24,6 +24,7 @@ let reducers = combineReducers({
   app: appReducer,
 });
 
+// Строки для подключения расширений React/Redux Dev Tools 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducers,

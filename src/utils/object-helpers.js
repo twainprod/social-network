@@ -1,8 +1,8 @@
 export const updateObjectInArray = (
-  items,
-  itemId,
-  objPropName,
-  newObjProps
+  items, // массив
+  itemId, // значение для сравнения
+  objPropName, // свойство объекта
+  newObjProps // часть объекта, который изменяем
 ) => {
   return items.map((u) => {
     if (u[objPropName] === itemId) {
@@ -11,3 +11,4 @@ export const updateObjectInArray = (
     return u;
   });
 };
+// Функция вернет новый массив. Сравниваются два свойства и возвращается копия массива с измененными свойствами.
