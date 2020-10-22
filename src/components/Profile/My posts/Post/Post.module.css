@@ -16,9 +16,13 @@
 .likes {
   width: 50px;
   display: flex;
+  font-weight: 700;
   justify-content: flex-end;
 }
-.likes span:hover {
+.likes:hover {
   cursor: pointer;
   color: #0f96f9;
+}
+.heart {
+  color: #dd0000;
 }

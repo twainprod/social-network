@@ -1,15 +1,19 @@
 .selectedPage {
-  color: #fff !important;
+  color: #27aae1 !important;
   font-weight: 700;
   background-color: #27aae1;
 }
 .pages {
-  color: #27aae1;
-  border: 1px solid #27aae1;
-  padding: 5px 0.5em;
+  margin: 0 3px;
   font-size: 14px;
-  margin-right: 5px;
-  border-radius: 3px;
+  line-height: 20px;
+  padding: 5px 10px;
+  background-color: #fafbfc;
+  border: 1px solid #1b1f2326;
+  transition: 0.2s;
+  color: #333;
+  border-radius: 6px;
+  outline: none;
 }
 .pages:hover {
   cursor: pointer;
@@ -21,4 +25,7 @@
 }
 .buttonPrev {
   margin-right: 5px;
+}
+.buttonNext {
+  margin-left: 5px;
 }

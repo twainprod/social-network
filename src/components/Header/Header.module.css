@@ -5,7 +5,9 @@
   align-items: center;
   color: #333;
   font-family: "Roboto", sans-serif;
-  border-bottom: 1px solid #e6ecf5;
+  background-color: #fff;
+  border: 1px solid #a1a1a1;
+  border-radius: 10px;
 }
 .brand {
   font-weight: 500;

@@ -54,7 +54,7 @@ let Paginator = ({
           );
         })}
       {portionCount > portionNumber && (
-        <button
+        <button className={s.buttonNext}
           onClick={() => {
             setPortionNumber(portionNumber + 1);
           }}

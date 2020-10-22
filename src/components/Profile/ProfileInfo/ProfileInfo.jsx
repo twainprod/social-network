@@ -3,6 +3,7 @@ import s from "./ProfileInfo.module.css";
 import userPhoto from "../../../img/user.jpg";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
+import uploadImage from '../../../img/upload.png'
 
 const ProfileInfo = ({
   profile,
@@ -29,13 +30,18 @@ const ProfileInfo = ({
   return (
     <div>
       <div className={s.description}>
-        <div className={s.blockAvatar}>
+        <div className={s.blockAvatar}>          
+          <img
+            src={profile.photos.large || userPhoto}
+            alt=""
+            className={s.avatar}
+          />
           <div>
             {isOwner && (
               <>
                 <label htmlFor={s.uploadPhoto}>
                   <img
-                    src="https://image.flaticon.com/icons/png/512/12/12313.png"
+                    src={uploadImage}
                     alt="upload"
                     className={s.loadPhoto}
                   />
@@ -48,11 +54,6 @@ const ProfileInfo = ({
               </>
             )}
           </div>
-          <img
-            src={profile.photos.large || userPhoto}
-            alt=""
-            className={s.avatar}
-          />
         </div>
         <div className={s.info}>
           {editMode ? (
@@ -70,7 +71,7 @@ const ProfileInfo = ({
               }}
             />
           )}
-          <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+          <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
         </div>
       </div>
     </div>
@@ -99,7 +100,6 @@ const ProfileData = ({ profile, isOwner, goToEditeMode }) => {
         <b>About me:</b> {profile.aboutMe}
       </div>
       <div>
-        {/* <b>Contacts:</b>{" "} */}
         <div className={s.contacts}>
           {Object.keys(profile.contacts).map((key) => {
             return (

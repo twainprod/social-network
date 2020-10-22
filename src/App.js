@@ -7,7 +7,7 @@ import Settings from "./components/Settings/Settings";
 import {
   Route,
   withRouter,
-  BrowserRouter,
+  HashRouter,
   Switch,
   Redirect,
 } from "react-router-dom";
@@ -96,11 +96,11 @@ const AppContainer = compose(
 
 const TwainApp = (props) => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter /* basename={process.env.PUBLIC_URL}*/>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

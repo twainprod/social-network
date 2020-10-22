@@ -18,23 +18,20 @@ code {
 }
 
 button {
-  color: white;
-  text-decoration: none;
-  padding: 0.8em 1em calc(0.8em + 3px);
-  border-radius: 3px;
-  background: #0f96f9;
-  box-shadow: 0 -3px #0e71b8 inset;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 5px 1em;
+  background-color: #fafbfc;
+  border: 1px solid #1b1f2326;
   transition: 0.2s;
-  border: none;
+  color: #333;
+  border-radius: 6px;
   outline: none;
 }
 button:hover {
-  background: #0e71b8;
+  background-color: #f1f4f7;
   cursor: pointer;
-}
-button:active {
-  background: #0c4e7e;
-  box-shadow: 0 3px #0c4e7e inset;
 }
 textarea {
   width: 100%;

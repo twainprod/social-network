@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import s from "./ProfileInfo.module.css";
+import cn from 'classnames';
 
 const ProfileStatusWithHooks = (props) => {
   const [editMode, setEditMode] = useState(false);
@@ -26,15 +27,15 @@ const ProfileStatusWithHooks = (props) => {
   return (
     <div>
       {!editMode && (
-        <div className={s.status}>
+        <div className={cn({ [s.ownerStatus]: props.isOwner }, s.status )}>
           <b>Status: </b>
-          <span onDoubleClick={activateEditMode}>
-            {props.status || "Write your status..."}
+          <span onClick={props.isOwner ? activateEditMode : {}}>
+            {props.status || "Where is status?"}
           </span>
         </div>
       )}
-      {editMode && (
-        <div>
+      {editMode && props.isOwner && (
+        <div className={s.status}>
           <input
             onChange={onStatusChange}
             autoFocus={true}

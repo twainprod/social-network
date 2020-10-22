@@ -1,23 +1,46 @@
+/* Общий блок профиля */
 .description {
-  padding: 20px;
+  padding: 30px 20px;
   font-size: 14px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-gap: 20px;
 }
-.avatar {
-  height: 150px;
-  position: relative;
+.description input {
+  outline: 0;
 }
+
+/* Блок аватара + загрузки фото */
 .blockAvatar {
-  height: 150px;
-  width: 150px;
-  margin-right: 20px;
+  position: relative;
+  width: 250px;
 }
+.blockAvatar img {
+  width: 100%;
+  border-radius: 100%;
+}
+/* input для загрузки файла */
+#uploadPhoto {
+  display: none;
+}
+.loadPhoto {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  top: 0;
+  padding: 50px;
+  z-index: 1;
+  background-color: #000;
+  border-radius: 100%;
+}
+.loadPhoto:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Блок с информацией */
 .contacts {
   margin: 20px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 5px;
   font-size: 12px;
 }
 .contactItem a {
@@ -27,31 +50,18 @@
 .contactItem a:hover {
   text-decoration: underline;
 }
-#uploadPhoto {
-  display: none;
-}
-.loadPhoto {
-  position: absolute;
-  opacity: 0;
-  width: 150px;
-  z-index: 1;
-  background-color: #fff;
-  padding: 30px;
-}
-.loadPhoto:hover {
-  opacity: 0.3;
+.ownerStatus:hover {
+  background-color: #e0e6f5;
   cursor: pointer;
-}
-.buttonEdit {
-  margin-top: 5px;
-  position: absolute;
-  top: 300px;
-  left: 469px;
-  opacity: 0;
-}
-.buttonEdit:hover {
-  opacity: 1;
 }
 .status {
-  cursor: pointer;
+  padding: 2px 0;
+  margin-bottom: 10px;
+  border-bottom: none;
+}
+.status input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: #f6f7bb;
 }
