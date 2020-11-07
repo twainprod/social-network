@@ -2,19 +2,32 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import { Route } from "react-router-dom";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, reset } from "redux-form";
 import { Textarea } from "../common/FormsControls/FormsControls";
 import { required, maxLengthCreator } from "../../utils/validators/validators";
+import { useState } from "react";
 
 const Dialogs = (props) => {
-  let state = props.dialogsPage;
+  let state = props.dialogsPage;  
+  
+  const [id, setId] = useState(0);
 
+  const idToMessages = (id) => {
+    setId(id)
+  }
+
+// let messagesElements = (id) => {    
+//     return state.messages[id-1].map((m) => (
+//     <Message key={m.id} message={m.message} />
+//     ));
+//   }  
+  
   let dialogsElements = state.dialogs.map((d) => (
-    <DialogItem name={d.name} id={d.id} />
-  ));
-  let messagesElements = state.messages.map((m) => (
-    <Message message={m.message} />
+    <DialogItem key={d.id} name={d.name} id={d.id} idToMessages={idToMessages}/>
+  ));  
+
+  let messagesElements = state.messages[id].map((m) => (
+    <Message key={m.id} message={m.message} />
   ));
 
   // Принимает values при событии onSubmit нашей формы AddMessageForm
@@ -28,16 +41,11 @@ const Dialogs = (props) => {
       <div className={s.dialogs}>
         <div className={s.dialogsItems}>{dialogsElements}</div>
         <div className={s.messages}>
-          {messagesElements}
-          <Route
-            path="/dialogs/2"
-            component={() => {
-              return <div>Messages for id 2</div>;
-            }}
-          />
+          {messagesElements}          
         </div>
         {/* Событие onSubmit передает данные из формы колбеку addNewMessage */}
-        <AddMessageFormRedux onSubmit={addNewMessage} /> 
+        {id !== 0 &&
+          <AddMessageFormRedux onSubmit={addNewMessage} />}
       </div>
     </div>
   );
@@ -49,7 +57,7 @@ const AddMessageForm = (props) => {
   return (
     <form className={s.textForm} onSubmit={props.handleSubmit}>
       <Field
-        class={s.textArea}
+        className={s.textArea}
         component={Textarea}
         name="newMessageBody"
         placeholder="Write your message..."
@@ -60,8 +68,12 @@ const AddMessageForm = (props) => {
   );
 };
 
+const afterSubmit = (result, dispatch) =>
+  dispatch(reset("dialogAddMessageForm"));
+
 const AddMessageFormRedux = reduxForm({
   form: "dialogAddMessageForm",
+  onSubmitSuccess: afterSubmit
 })(AddMessageForm);
 
 export default Dialogs;

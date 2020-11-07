@@ -1,14 +1,15 @@
 import React from "react";
 import s from "../Dialogs.module.css";
 import { NavLink } from "react-router-dom";
+import userImg from '../../../img/user.jpg';
 
 const DialogItem = (props) => {
   return (
     <div className={s.dialog}>
-      <NavLink to={"/dialogs/" + props.id} activeClassName={s.active}>
+      <NavLink to={"/dialogs/" + props.id} onClick={() => props.idToMessages(props.id)} activeClassName={s.active}>
         <div className={s.dialogAvatar}>
           <img
-            src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+            src={userImg}
             alt=""
           />
           {props.name}
