@@ -17,6 +17,10 @@ export const getCurrentPage = (state) => {
   return state.usersPage.currentPage;
 };
 
+export const getCurrentPortion = (state) => {
+  return state.usersPage.portionNumber;
+}
+
 export const getIsFetching = (state) => {
   return state.usersPage.isFetching;
 };

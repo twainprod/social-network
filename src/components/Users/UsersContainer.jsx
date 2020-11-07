@@ -7,6 +7,7 @@ import {
   setCurrentPage,
   toggleFollowingProgress,
   getUsers,
+  setCurrentPortion,
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import { compose } from "redux";
@@ -17,6 +18,7 @@ import {
   getFollowingInProgress,
   getPageSize,
   getUsersItems,
+  getCurrentPortion,
 } from "../../redux/users-selectors";
 import Paginator from "../common/Paginator/Paginator";
 import Loader from "../common/Loader/Loader";
@@ -27,11 +29,16 @@ class UsersContainer extends React.Component {
     this.props.getUsers(currentPage, pageSize); // Вызов thunk-creator'а
   }
 
-  onPageChanged = (pageNumber) => {
+  onPageChanged = (pageNumber, portionNumber) => {
     let { pageSize } = this.props;
     this.props.getUsers(pageNumber, pageSize);
-    this.props.setCurrentPage(pageNumber);
+    this.props.setCurrentPage(pageNumber, portionNumber);
   };
+
+  onPortionChanged = (portionNumber) => {
+    this.props.setCurrentPortion(portionNumber);
+  }
+
   render() {
     return (
       <>
@@ -41,6 +48,9 @@ class UsersContainer extends React.Component {
           onPageChanged={this.onPageChanged}
           totalItemsCount={this.props.totalUsersCount}
           pageSize={this.props.pageSize}
+          portionNumber={this.props.portionNumber}
+          setPortionNumber={this.setPortionNumber}
+          onPortionChanged={this.onPortionChanged}
         />
         {this.props.isFetching ? (
           <Loader />
@@ -49,7 +59,8 @@ class UsersContainer extends React.Component {
             users={this.props.users}
             totalUsersCount={this.props.totalUsersCount}
             pageSize={this.props.pageSize}
-            currentPage={this.props.currentPage}
+              currentPage={this.props.currentPage}
+              portionNumber={this.props.portionNumber}
             onPageChanged={this.onPageChanged}
             follow={this.props.follow}
             unfollow={this.props.unfollow}
@@ -67,6 +78,7 @@ let mapStateToProps = (state) => {
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),
     currentPage: getCurrentPage(state),
+    portionNumber: getCurrentPortion(state),
     isFetching: getIsFetching(state),
     followingInProgress: getFollowingInProgress(state),
   };
@@ -77,6 +89,7 @@ export default compose(
     follow,
     unfollow,
     setCurrentPage,
+    setCurrentPortion,
     toggleFollowingProgress,
     getUsers,
   })

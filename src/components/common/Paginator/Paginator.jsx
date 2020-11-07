@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import s from "./Paginator.module.css";
 import cn from "classnames";
 
-let Paginator = ({
+let Paginator = React.memo(({
   totalItemsCount,
   pageSize,
   currentPage,
   onPageChanged,
+  onPortionChanged,
   portionSize = 10,
+  portionNumber
 }) => {
   let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
@@ -17,17 +19,16 @@ let Paginator = ({
   }
 
   let portionCount = Math.ceil(pagesCount / portionSize);
-  let [portionNumber, setPortionNumber] = useState(1);
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionPageNumber = portionNumber * portionSize;
-
+  
   return (
     <div className={s.pagesBlock}>
       {portionNumber > 1 && (
         <button
           className={s.buttonPrev}
           onClick={() => {
-            setPortionNumber(portionNumber - 1);
+            onPortionChanged(portionNumber - 1);
           }}
         >
           PREV
@@ -42,7 +43,7 @@ let Paginator = ({
             <span
               key={p}
               onClick={(e) => {
-                onPageChanged(p);
+                onPageChanged(p, portionNumber);
               }}
               className={cn({ [s.selectedPage]: currentPage === p }, s.pages)}
               // Использование библиотеки classNames (cn) позволяет применять несколько классов к элементу через запятую.
@@ -56,7 +57,7 @@ let Paginator = ({
       {portionCount > portionNumber && (
         <button className={s.buttonNext}
           onClick={() => {
-            setPortionNumber(portionNumber + 1);
+            onPortionChanged(portionNumber + 1);
           }}
         >
           NEXT
@@ -64,6 +65,6 @@ let Paginator = ({
       )}
     </div>
   );
-};
+});
 
 export default Paginator;

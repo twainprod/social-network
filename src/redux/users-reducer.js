@@ -8,12 +8,14 @@ const SET_CURRENT_PAGE = "users/SET-CURRENT-PAGE";
 const SET_TOTAL_COUNT_USERS = "users/SET-TOTAL-COUNT-USERS";
 const TOGGLE_IS_FETCHING = "users/TOGGLE-IS-FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "users/TOGGLE_IS_FOLLOWING_PROGRESS";
+const SET_CURRENT_PORTION = 'users/SET_CURRENT_PORTION';
 
 let initialState = {
   users: [],
   pageSize: 20,
   totalUsersCount: 0,
   currentPage: 1,
+  portionNumber: 1,
   isFetching: false,
   followingInProgress: [],
 };
@@ -41,6 +43,9 @@ const usersReducer = (state = initialState, action) => {
     case SET_CURRENT_PAGE: {
       return { ...state, currentPage: action.currentPage };
     }
+    case SET_CURRENT_PORTION: {      
+      return { ...state, portionNumber: action.portionNumber };    
+    }
     case SET_TOTAL_COUNT_USERS: {
       return { ...state, totalUsersCount: action.totalCount };
     }
@@ -66,6 +71,10 @@ export const setUsers = (users) => ({ type: SET_USERS, users });
 export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
+});
+export const setCurrentPortion = (portionNumber) => ({
+  type: SET_CURRENT_PORTION,
+  portionNumber,
 });
 export const setTotalUsersCount = (totalCount) => ({
   type: SET_TOTAL_COUNT_USERS,
