@@ -3,6 +3,7 @@ import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
+import { withRouter } from "react-router-dom";
 
 let mapStateToProps = (state) => {
   return {
@@ -12,5 +13,5 @@ let mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps, { sendMessage }),
-  withAuthRedirect
+  withAuthRedirect, withRouter
 )(Dialogs);

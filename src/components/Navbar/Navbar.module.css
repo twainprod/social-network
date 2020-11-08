@@ -3,9 +3,8 @@
   padding: 25px;
   font-family: "Roboto", sans-serif;
   color: #333333;
-  background-color: #fff;
-  border: 1px solid #a1a1a1;
-  border-radius: 10px;
+  background-color: #ffffffea;
+  border: 1px solid #e6ecf5;
 }
 .item a:hover {
   color: #0f96f9;

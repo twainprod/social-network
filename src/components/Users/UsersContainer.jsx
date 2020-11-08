@@ -56,15 +56,15 @@ class UsersContainer extends React.Component {
           <Loader />
         ) : (
           <Users
-            users={this.props.users}
-            totalUsersCount={this.props.totalUsersCount}
-            pageSize={this.props.pageSize}
+              users={this.props.users}
+              totalUsersCount={this.props.totalUsersCount}
+              pageSize={this.props.pageSize}
               currentPage={this.props.currentPage}
               portionNumber={this.props.portionNumber}
-            onPageChanged={this.onPageChanged}
-            follow={this.props.follow}
-            unfollow={this.props.unfollow}
-            followingInProgress={this.props.followingInProgress}
+              onPageChanged={this.onPageChanged}
+              follow={this.props.follow}
+              unfollow={this.props.unfollow}
+              followingInProgress={this.props.followingInProgress}
           />
         )}
       </>

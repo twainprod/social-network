@@ -9,8 +9,15 @@ import { useState } from "react";
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;  
+
+  let dialogId = props.match.params.dialogId;
+
+  if (!dialogId) {
+    dialogId = 0
+  }
+
   
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(dialogId);
 
   const idToMessages = (id) => {
     setId(id)

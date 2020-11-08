@@ -64,23 +64,25 @@ const ProfileInfo = ({
             />
           ) : (
             <ProfileData
-              profile={profile}
-              isOwner={isOwner}
-              goToEditeMode={() => {
-                setEditMode(true);
+                profile={profile}
+                isOwner={isOwner}
+                status={status}
+                updateStatus={updateStatus}
+                goToEditeMode={() => {
+                  setEditMode(true);
               }}
             />
           )}
-          <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
+          {/* <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} /> */}
         </div>
       </div>
     </div>
   );
 };
 
-const ProfileData = ({ profile, isOwner, goToEditeMode }) => {
+const ProfileData = ({ profile, isOwner, goToEditeMode, status, updateStatus }) => {
   return (
-    <div>
+    <div className={s.profileData}>
       {isOwner && (
         <button className={s.buttonEdit} onClick={goToEditeMode}>
           Edit profile
@@ -88,6 +90,7 @@ const ProfileData = ({ profile, isOwner, goToEditeMode }) => {
       )}
       <div>
         <h3>{profile.fullName}</h3>
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
         <b>Looking for a job: </b>
         {profile.lookingForAJob ? "yes" : "no"}
         {profile.lookingForAJob && (

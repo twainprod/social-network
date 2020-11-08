@@ -7,7 +7,7 @@
     "n c";
   grid-template-rows: 70px 1fr;
   grid-template-columns: 200px 1fr;
-  grid-gap: 10px;
+  grid-gap: 5px;
   /* border: 1px solid #e6ecf5; */
 }
 .app-wrapper-content {
@@ -15,8 +15,7 @@
   background-color: #fff;
   font-family: "Roboto", sans-serif;
   color: #333333;
-  border: 1px solid #a1a1a1;
-  border-radius: 10px;
+  border: 1px solid #e6ecf5;
 }
 .loader {
   display: flex;
